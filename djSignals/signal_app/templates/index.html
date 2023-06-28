@@ -1,0 +1,11 @@
+{% for i in user %}
+<div>
+    <h2>{{i.name}}</h2>
+    <h2>{{i.description}}</h2>
+    <a href="{% url 'update' i.id %}">Edit</a>
+    <form action="{% url 'delete' i.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+</div>
+{% endfor %}
